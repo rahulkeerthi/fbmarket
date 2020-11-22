@@ -60,8 +60,6 @@ group :development, :test do  gem 'pry-byebug'
   gem 'faker'
 
   # testing framework
-  gem 'capybara'
-  gem 'webdrivers', '~> 4.0'
   gem 'launchy'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
