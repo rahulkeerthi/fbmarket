@@ -48,10 +48,21 @@ gem 'geocoder'
 # Searchkick for searching
 gem 'searchkick', '~> 4.0'
 
+# Rails Admin
+gem 'rails_admin', '~> 2.0'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
+
+  # Faker for dev seeds
+  gem 'faker'
+
+  # testing framework
+  gem 'capybara'
+  gem 'webdrivers', '~> 4.0'
+  gem 'launchy'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
