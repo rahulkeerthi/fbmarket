@@ -37,6 +37,9 @@ gem 'simple_form'
 # Cloudinary for file hosting
 gem 'cloudinary'
 
+# Pundit for Authorization
+gem 'pundit'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
