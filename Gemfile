@@ -34,7 +34,10 @@ gem 'devise'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+
+# Simple Form with country selector
 gem 'simple_form'
+gem 'country_select'
 
 # Cloudinary for file hosting
 gem 'cloudinary'
