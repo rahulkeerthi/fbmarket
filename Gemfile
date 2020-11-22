@@ -40,6 +40,9 @@ gem 'cloudinary'
 # Pundit for Authorization
 gem 'pundit'
 
+# Geocoder for geocoding addresses
+gem 'geocoder'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
