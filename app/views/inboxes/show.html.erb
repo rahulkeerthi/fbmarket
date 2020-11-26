@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>#<%= @inbox.name %></h1>
+  <div id="messages" data-inbox-id="<%= @inbox.id %>">
+    <% @inbox.messages.each do |message| %>
+      <%= render 'message', message: message %>
+    <% end %>
+  </div>
+  <%= simple_form_for [ @inbox, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@inbox.name}" %>
+  <% end %>
+</div>

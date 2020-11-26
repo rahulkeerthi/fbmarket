@@ -79,6 +79,10 @@ group :development do
   # Better Errors (https://github.com/BetterErrors/better_errors)
   gem "better_errors"
   gem "binding_of_caller"
+
+  # Model annotation
+  gem 'annotate'
+
 end
 
 group :test do

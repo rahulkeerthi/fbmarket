@@ -1,8 +1,43 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  addr_area              :string
+#  addr_city              :string
+#  addr_country           :string
+#  addr_postcode          :string
+#  addr_street1           :string
+#  addr_street2           :string
+#  admin                  :boolean          default(FALSE), not null
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  first_name             :string
+#  last_name              :string
+#  latitude               :float
+#  longitude              :float
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  username               :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                   (email) UNIQUE
+#  index_users_on_latitude_and_longitude  (latitude,longitude)
+#  index_users_on_reset_password_token    (reset_password_token) UNIQUE
+#
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # DEVISE
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # ADMIN
+  def admin?
+    admin
+  end
 
   # USER AVATAR
   has_one_attached :photo
@@ -13,6 +48,10 @@ class User < ApplicationRecord
 
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
+
+  # MESSAGES
+  has_many :messages
+  has_many :inboxes, through: :messages
 
   def follow(user_id)
     following_relationships.create(following_id: user_id)
@@ -36,6 +75,6 @@ class User < ApplicationRecord
   end
 
   def address_changed?
-    addr_street1_changed? || addr_street2_change? || addr_city_changed? || addr_area_changed? || addr_country_changed? || addr_postcode_changed?
+    addr_street1_changed? || addr_street2_changed? || addr_city_changed? || addr_area_changed? || addr_country_changed? || addr_postcode_changed?
   end
 end
