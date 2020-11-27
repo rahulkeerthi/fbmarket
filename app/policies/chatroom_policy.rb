@@ -1,4 +1,4 @@
-class InboxPolicy < ApplicationPolicy
+class ChatroomPolicy < ApplicationPolicy
   # class Scope < Scope
   #   def resolve
   #     scope.all
