@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/nimda', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
-  resources :inboxes, only: :show do
+  resources :inboxes, only: %i[index show] do
     resources :messages, only: :create
   end
   resources :chatrooms, only: :show do

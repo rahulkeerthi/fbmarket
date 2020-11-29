@@ -1,0 +1,11 @@
+<div class="container">
+  <% if @inboxes.length == 0 %>
+    <h1 class="text-center mt-3">You have no messages yet!</h1>
+  <% else %>
+    <% @inboxes.each do |inbox| %>
+      <%= link_to inbox_path(inbox) do %>
+        <h1><%= inbox.name %></h1>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
